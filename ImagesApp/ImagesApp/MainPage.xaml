@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             mc:Ignorable="d"
+             x:Class="ImagesApp.MainPage">
+
+    <AbsoluteLayout>
+        
+        <forms:AnimationView 
+	        x:Name="animationView"
+	        Animation="indicator.json" 
+	        Loop="True" 
+	        AutoPlay="True"
+            IsVisible="{Binding Source={x:Reference image},Path=IsLoading}"
+	        AbsoluteLayout.LayoutBounds="0.5,0.05,100,100" 
+            AbsoluteLayout.LayoutFlags="PositionProportional" />
+        <Image x:Name="image" 
+               AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
+        <StackLayout AbsoluteLayout.LayoutBounds="0.9,0.05,100,50"
+                     AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Button Text="Next"
+                x:Name="next_btn"
+                Clicked="next_btn_Clicked"/>
+        </StackLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0.1,0.05,100,50"
+                     AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Button  Text="Previous"
+                 x:Name="previous_btn"
+                 Clicked="previous_btn_Clicked"/>
+        </StackLayout>
+    </AbsoluteLayout>
+
+</ContentPage>
